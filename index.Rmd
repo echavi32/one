@@ -17,8 +17,8 @@ Writing a paragraph, just type normaly.
 colum 1 | colum 2
 ---|---
 Buffalo Bills | Awesomeness
-Yankees | Swaggness
-Bears | other words
+alphabet | soup
+just created | website
 
 ![](diamond.jpg)
 
