@@ -3,29 +3,20 @@ title: "S Q L"
 output: html_document
 ---
 
-# This is the first-level header
-## This is another size
-### This is the third size
-#### Possibly another size?
+## Filtering Rows and Columns
 
-----
+With SQL you can filter Columns and Rows with WHERE. Let's look at an example using the Lahman baseball database. First, we need to load some packages. 
 
-#### Heading for paragraph
-Writing a paragraph, just type normaly.
+```{r warning=FALSE, message=FALSE}
+library(Lahman)
+library(sqldf)
+```
 
-* Item one
-* Item two
-* Item three
-* Item four
+Suppose we want to see the homerun totals for the 1927 Yankees. We could write the following:
 
-colum 1 | colum 2
----|---
-Buffalo Bills | Awesomeness
-alphabet | soup
-just created | website
+```{r}
+query<-"SELECT playerID,yearID,teamID,HR FROM Batting 
+WHERE teamID='NYA'  and yearID=1927"
+sqldf(query)
+```
 
-![](diamond.jpg)
-
-<img src="diamond.jpg" width="350">
-
-![](ed.jpg)
