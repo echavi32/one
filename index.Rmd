@@ -7,6 +7,9 @@ output: html_document
 ## This is another size
 ### This is the third size
 
+----
+
+#### Heading for paragraph
 Writing a paragraph, just type normaly.
 
 * Item one
