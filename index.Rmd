@@ -20,3 +20,36 @@ WHERE teamID='NYA'  and yearID=1927"
 sqldf(query)
 ```
 
+Suppose you want to find all instances where Yankees have hit 40 homeruns or more.
+
+```{r}
+query<-"SELECT playerID,yearID,teamID,HR FROM Batting
+WHERE HR>39"
+sqldf(query)
+```
+
+Suppose we want to now find all examples where a player had more than 40 homeruns but less than 60 strikeouts.
+
+```{r}
+query<-"SELECT playerID,yearID,teamID,HR,SO FROM Batting
+WHERE HR>39 and SO<60"
+sqldf(query)
+```
+
+Again, you want to find all instances of a player striking out less than 10 times. At least 400 at-bats (AB) players with least strikeouts at the top.
+
+```{r}
+query<-"SELECT playerID,yearID,teamID,SO,AB FROM Batting
+WHERE AB>399 and SO<10"
+sqldf(query)
+```
+
+Finding every instance of a player hitting more than 50 homeruns but lets have the players with the most homeruns at the top.
+
+```{r}
+query<-"SELECT playerID,yearID,teamID,HR FROM Batting
+WHERE HR>50
+ORDER BY HR DESC"
+sqldf(query)
+```
+
