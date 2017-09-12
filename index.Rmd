@@ -44,6 +44,8 @@ WHERE AB>399 and SO<10"
 sqldf(query)
 ```
 
+##Ordering By...
+
 Finding every instance of a player hitting more than 50 homeruns but lets have the players with the most homeruns at the top.
 
 ```{r}
