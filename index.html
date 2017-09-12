@@ -126,8 +126,8 @@ $(document).ready(function () {
 <pre class="r"><code>library(Lahman)
 library(sqldf)</code></pre>
 </div>
-<div id="title-here.." class="section level2">
-<h2>Title Here..</h2>
+<div id="the-layout" class="section level2">
+<h2>The Layout</h2>
 <p>Suppose we want to see the homerun totals for the 1927 Yankees. We could write the following:</p>
 <pre class="r"><code>query&lt;-&quot;SELECT playerID,yearID,teamID,HR FROM Batting 
 WHERE teamID='NYA'  and yearID=1927&quot;
@@ -159,8 +159,8 @@ sqldf(query)</code></pre>
 ## 24 thomamy01   1927    NYA  0
 ## 25  weraju01   1927    NYA  1</code></pre>
 </div>
-<div id="title-here" class="section level2">
-<h2>Title Here</h2>
+<div id="setting-limits-and-data-layout" class="section level2">
+<h2>Setting Limits and Data Layout</h2>
 <p>Suppose you want to find all instances where Yankees have hit 40 homeruns or more.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT playerID,yearID,teamID,HR FROM Batting
 WHERE HR&gt;39&quot;
@@ -493,8 +493,8 @@ sqldf(query)</code></pre>
 ## 325 frazito01   2016    CHA 40
 ## 326 trumbma01   2016    BAL 47</code></pre>
 </div>
-<div id="title-here-1" class="section level2">
-<h2>Title Here</h2>
+<div id="setting-right-and-left-limits-to-data-set" class="section level2">
+<h2>Setting Right and Left Limits To Data Set</h2>
 <p>Suppose we want to now find all examples where a player had more than 40 homeruns but less than 60 strikeouts.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT playerID,yearID,teamID,HR,SO FROM Batting
 WHERE HR&gt;39 and SO&lt;60&quot;
@@ -533,8 +533,8 @@ sqldf(query)</code></pre>
 ## 31 pujolal01   2004    SLN 46 52
 ## 32 pujolal01   2006    SLN 49 50</code></pre>
 </div>
-<div id="title-here-2" class="section level2">
-<h2>Title Here</h2>
+<div id="setting-a-starting-limit-with-ordering-by" class="section level2">
+<h2>Setting A Starting Limit, With Ordering By</h2>
 <p>Again, you want to find all instances of a player striking out less than 10 times. At least 400 at-bats (AB) players with least strikeouts at the top.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT playerID,yearID,teamID,SO,AB FROM Batting
 WHERE AB&gt;399 and SO&lt;10&quot;
@@ -606,8 +606,8 @@ sqldf(query)</code></pre>
 ## 64 mitchda01   1952    CLE  9 511
 ## 65 muelldo01   1956    NY1  7 453</code></pre>
 </div>
-<div id="ordering-by" class="section level2">
-<h2>Ordering By…</h2>
+<div id="ordering-by-different-scenario" class="section level2">
+<h2>Ordering By, Different Scenario</h2>
 <p>Finding every instance of a player hitting more than 50 homeruns but lets have the players with the most homeruns at the top.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT playerID,yearID,teamID,HR FROM Batting
 WHERE HR&gt;50

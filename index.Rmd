@@ -12,7 +12,7 @@ library(Lahman)
 library(sqldf)
 ```
 
-##Title Here..
+##The Layout
 
 Suppose we want to see the homerun totals for the 1927 Yankees. We could write the following:
 
@@ -22,7 +22,7 @@ WHERE teamID='NYA'  and yearID=1927"
 sqldf(query)
 ```
 
-##Title Here
+##Setting Limits and Data Layout
 
 Suppose you want to find all instances where Yankees have hit 40 homeruns or more.
 
@@ -32,7 +32,7 @@ WHERE HR>39"
 sqldf(query)
 ```
 
-##Title Here
+##Setting Right and Left Limits To Data Set
 
 Suppose we want to now find all examples where a player had more than 40 homeruns but less than 60 strikeouts.
 
@@ -42,7 +42,7 @@ WHERE HR>39 and SO<60"
 sqldf(query)
 ```
 
-##Title Here
+##Setting A Starting Limit, With Ordering By
 
 Again, you want to find all instances of a player striking out less than 10 times. At least 400 at-bats (AB) players with least strikeouts at the top.
 
@@ -52,7 +52,7 @@ WHERE AB>399 and SO<10"
 sqldf(query)
 ```
 
-##Ordering By...
+##Ordering By, Different Scenario
 
 Finding every instance of a player hitting more than 50 homeruns but lets have the players with the most homeruns at the top.
 
