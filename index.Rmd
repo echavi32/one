@@ -12,7 +12,7 @@ library(Lahman)
 library(sqldf)
 ```
 
-##The Layout
+##A General Lay Out
 
 Suppose we want to see the homerun totals for the 1927 Yankees. We could write the following:
 
