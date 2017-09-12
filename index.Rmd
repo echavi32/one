@@ -3,6 +3,8 @@ title: "S Q L"
 output: html_document
 ---
 
+<img src="sql1.png" width="1000">
+
 ## Filtering Rows and Columns
 
 With SQL you can filter Columns and Rows with WHERE. Let's look at an example using the Lahman baseball database. First, we need to load some packages. 
