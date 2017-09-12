@@ -12,6 +12,8 @@ library(Lahman)
 library(sqldf)
 ```
 
+##Title Here..
+
 Suppose we want to see the homerun totals for the 1927 Yankees. We could write the following:
 
 ```{r}
@@ -19,6 +21,8 @@ query<-"SELECT playerID,yearID,teamID,HR FROM Batting
 WHERE teamID='NYA'  and yearID=1927"
 sqldf(query)
 ```
+
+##Title Here
 
 Suppose you want to find all instances where Yankees have hit 40 homeruns or more.
 
@@ -28,6 +32,8 @@ WHERE HR>39"
 sqldf(query)
 ```
 
+##Title Here
+
 Suppose we want to now find all examples where a player had more than 40 homeruns but less than 60 strikeouts.
 
 ```{r}
@@ -35,6 +41,8 @@ query<-"SELECT playerID,yearID,teamID,HR,SO FROM Batting
 WHERE HR>39 and SO<60"
 sqldf(query)
 ```
+
+##Title Here
 
 Again, you want to find all instances of a player striking out less than 10 times. At least 400 at-bats (AB) players with least strikeouts at the top.
 
