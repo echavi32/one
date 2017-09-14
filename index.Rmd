@@ -89,12 +89,14 @@ Finding the players with the highest homerun average over their career. Limit th
 
 ```{r}
 query<-"SELECT playerID, avg(HR) FROM Batting
-GROUP BY avg(HR)>30
-ORDER BY DESC"
+GROUP BY playerID 
+HAVING avg(HR)>30
+ORDER BY avg(HR) DESC"
 sqldf(query)
 ```
 
 Finding all instances of players hitting more than 50 homeruns, give first, and last names teamID, yearID, and homeruns
+
 
 ```{r}
 query<-"SELECT nameFirst, nameLast, yearID, teamID, HR
