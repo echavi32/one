@@ -8,6 +8,8 @@ output: html_document
 
 ## Filtering Rows and Columns for SQL
 
+[SWAG](https://echavi32.github.io/one/one)
+
 With SQL you can filter Columns and Rows with WHERE. Let's look at an example using the Lahman baseball database. First, we need to load some packages. 
 
 ```{r warning=FALSE, message=FALSE}
@@ -31,7 +33,7 @@ Suppose you want to find all instances where Yankees have hit 40 homeruns or mor
 
 ```{r}
 query<-"SELECT playerID,yearID,teamID,HR FROM Batting
-WHERE HR>39"
+WHERE HR>50"
 sqldf(query)
 ```
 
@@ -41,7 +43,7 @@ Suppose we want to now find all examples where a player had more than 40 homerun
 
 ```{r}
 query<-"SELECT playerID,yearID,teamID,HR,SO FROM Batting
-WHERE HR>39 and SO<60"
+WHERE HR>40 and SO<50"
 sqldf(query)
 ```
 
@@ -56,6 +58,10 @@ sqldf(query)
 ```
 
 ##Ordering By, Different Scenario
+
+One can also order output. To order the information, a ORDER BY clause is used. This will default to ascending order (smallest to largest). To organize in descending order, the DESC command will be placed after the ORDER BY command.
+
+##Execution
 
 Finding every instance of a player hitting more than 50 homeruns but lets have the players with the most homeruns at the top.
 
@@ -115,14 +121,41 @@ WHERE Batting.playerID='ruthba01'"
 sqldf(query)
 ```
 
-baberuth stats playerID, team names, yearID, HR
+##Aggregation
+
+Aggregation allows one to group and condense information in different ways, essentially 'squashing' different peces of data together. This is done by using the GROUP BY command. When using GROUP BY, one must then specify how the other columns asked for should be grouped. Should they be averaged, should they be added, or does one only want to see the minimum or maximum? These modifiers are placed on the other column names.This is how one would specify what should be done to those data sets:
+
+*Summation: sum(colname)
+*Average:avg(colname)
+*Maximum: Max(colname)
+*Minimum:min(colname)
+
+If one wants to continue filtering after they have grouped, they can use the HAVING command, which functions as the filtering WHERE command when used after GROUP BY. ORDER BY can be used in the same way as before, coming at the end of the command list.
+
+##Execution
+
+Find the career homerun totals for Babe Ruth.
 
 ```{r}
-query<-"SELECT nameFirst, nameLast, Batting.yearID, Batting.HR
-FROM Batting INNER JOIN Teams INNER JOIN Master
-ON Batting.teamID = Teams.teamID AND Batting.yearID=Teams.yearID
-WHERE Batting.playerID='ruthba01'
-ORDER BY Batting.HR DESC"
+query<-"SELECT playerID,sum(HR) FROM Batting 
+WHERE playerID='ruthba01'
+GROUP BY playerID"
+sqldf(query)
+```
+
+##Joining
+
+Joining allows tables to be joined together based on common data to increase the data output options. This is done through the INNER JOIN and ON commands. INNER JOIN indicates which tables are being joined together. ON indicates the common data that the tables will be joined by. If the common data appears alone in the code, it will need to either have specified which of the joined tables it is coming from, or replaced by the inforamtion from another table. In the first example, playerID in the SELECT phrase was replaced by nameFIRST and nameLAST to make reading the table easier.
+
+##Execution
+
+First and last name, along with team, year, and homeruns for Babe Ruth.
+
+```{r}
+query<-"SELECT nameFIRST,nameLAST,teamID,yearID,HR 
+FROM Batting INNER JOIN Master
+ON Batting.playerID=Master.playerID
+WHERE Batting.playerID='ruthba01'"
 sqldf(query)
 ```
 
